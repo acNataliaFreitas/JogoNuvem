@@ -1,4 +1,4 @@
-package com.exemplo.demo.controller;
+package com.example.demo.controller;
 
 import java.util.List;
 
@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exemplo.demo.domain.Ranking;
-import com.exemplo.demo.repository.RankingRepository;
-
-
+import com.example.demo.domain.Ranking;
+import com.example.demo.repository.RankingRepository;
 
 
 @RestController
@@ -22,17 +20,19 @@ import com.exemplo.demo.repository.RankingRepository;
 public class RankingController {
 
 	@Autowired
-	private RankingRepository repo;
+	private RankingRepository repository;
 
 	@PostMapping
 	@CrossOrigin
 	Ranking gravaPontuacao(@RequestBody Ranking ranking) {
-		return repo.save(ranking);
+		return repository.save(ranking);
 	}
 	
 	@GetMapping("/{nivel}")
 	@CrossOrigin
-	List<Ranking> rankingOrdenado(@PathVariable String nivel){
-		return repo.findByNivelOrderByPontuacaoDesc(nivel);
+	List<Ranking> rankingOrdenadoTop5(@PathVariable String nivel){
+		return repository.findTop5ByOrderByPontuacaoDesc(nivel);
 	}
+	
+	
 }

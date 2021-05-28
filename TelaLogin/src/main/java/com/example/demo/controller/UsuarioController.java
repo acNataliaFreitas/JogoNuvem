@@ -1,4 +1,4 @@
-package com.exemplo.demo.controller;
+package com.example.demo.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.exemplo.demo.domain.Usuario;
-import com.exemplo.demo.repository.UsuarioRepository;
+import com.example.demo.domain.Usuario;
+import com.example.demo.repository.UsuarioRepository;
 
 
 @RestController
